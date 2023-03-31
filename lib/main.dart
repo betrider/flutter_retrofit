@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_retrofit/json_annotation/rest_client.dart';
+import 'package:flutter_retrofit/freezed_annotation/rest_client.dart';
 import 'package:logger/logger.dart';
 
 final logger = Logger();
@@ -30,8 +30,8 @@ void main(List<String> args) {
   //   }
   // });
 
-  // freezed 확인
-  // var aa = Task(id: 'id', name: 'name', avatar: 'avatar', createdAt: 'createdAt');
-  // var bb = Task(id: 'id', name: 'name', avatar: 'avatar', createdAt: 'createdAt');
+  /// freezed 확인
+  // var aa = Task(id: 'id', name: 'name1');
+  // var bb = Task(id: 'id', name: 'name1');
   // print(aa == bb);
 }

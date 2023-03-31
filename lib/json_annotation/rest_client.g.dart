@@ -62,9 +62,10 @@ class _RestClient implements RestClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => Task.fromJson(i as Map<String, dynamic>))
-        .toList();
+    var value = await compute(
+      deserializeTaskList,
+      _result.data!.cast<Map<String, dynamic>>(),
+    );
     return value;
   }
 
@@ -87,7 +88,7 @@ class _RestClient implements RestClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Task.fromJson(_result.data!);
+    final value = await compute(deserializeTask, _result.data!);
     return value;
   }
 
@@ -169,7 +170,7 @@ class _RestClient implements RestClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Task.fromJson(_result.data!);
+    final value = await compute(deserializeTask, _result.data!);
     return value;
   }
 
@@ -181,8 +182,7 @@ class _RestClient implements RestClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(task.toJson());
+    final _data = task;
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<Task>(Options(
       method: 'PUT',
@@ -196,7 +196,7 @@ class _RestClient implements RestClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Task.fromJson(_result.data!);
+    final value = await compute(deserializeTask, _result.data!);
     return value;
   }
 
@@ -225,8 +225,7 @@ class _RestClient implements RestClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(task.toJson());
+    final _data = task;
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<Task>(Options(
       method: 'POST',
@@ -240,7 +239,7 @@ class _RestClient implements RestClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = Task.fromJson(_result.data!);
+    final value = await compute(deserializeTask, _result.data!);
     return value;
   }
 

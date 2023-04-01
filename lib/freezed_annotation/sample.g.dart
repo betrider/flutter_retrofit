@@ -9,7 +9,7 @@ part of 'sample.dart';
 _$_Sample _$$_SampleFromJson(Map<String, dynamic> json) => _$_Sample(
       aa: json['aa'] as String?,
       bb: json['bb'] as int?,
-      cc: json['cc'] as bool?,
+      cc: json['cc'] as bool? ?? false,
       dd: (json['dd'] as num?)?.toDouble(),
       ee: json['ee'] == null ? null : DateTime.parse(json['ee'] as String),
       ff: $enumDecodeNullable(_$StatusCodeEnumMap, json['ff']),

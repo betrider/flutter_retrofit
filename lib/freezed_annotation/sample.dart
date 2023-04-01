@@ -6,13 +6,14 @@ part 'sample.g.dart';
 @freezed
 class Sample with _$Sample {
   factory Sample({
+    /// aa 설명 111
     String? aa,
     int? bb,
-    bool? cc,
+    @Default(false) bool? cc,
     double? dd,
     DateTime? ee,
     StatusCode? ff,
-    StatusCodeEnhanced? gg,
+    required StatusCodeEnhanced? gg,
   }) = _Sample;
 
   factory Sample.fromJson(Map<String, dynamic> json) => _$SampleFromJson(json);

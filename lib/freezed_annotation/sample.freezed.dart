@@ -20,6 +20,7 @@ Sample _$SampleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Sample {
+  /// aa 설명 111
   String? get aa => throw _privateConstructorUsedError;
   int? get bb => throw _privateConstructorUsedError;
   bool? get cc => throw _privateConstructorUsedError;
@@ -172,16 +173,25 @@ class __$$_SampleCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Sample implements _Sample {
-  _$_Sample({this.aa, this.bb, this.cc, this.dd, this.ee, this.ff, this.gg});
+  _$_Sample(
+      {this.aa,
+      this.bb,
+      this.cc = false,
+      this.dd,
+      this.ee,
+      this.ff,
+      required this.gg});
 
   factory _$_Sample.fromJson(Map<String, dynamic> json) =>
       _$$_SampleFromJson(json);
 
+  /// aa 설명 111
   @override
   final String? aa;
   @override
   final int? bb;
   @override
+  @JsonKey()
   final bool? cc;
   @override
   final double? dd;
@@ -237,11 +247,13 @@ abstract class _Sample implements Sample {
       final double? dd,
       final DateTime? ee,
       final StatusCode? ff,
-      final StatusCodeEnhanced? gg}) = _$_Sample;
+      required final StatusCodeEnhanced? gg}) = _$_Sample;
 
   factory _Sample.fromJson(Map<String, dynamic> json) = _$_Sample.fromJson;
 
   @override
+
+  /// aa 설명 111
   String? get aa;
   @override
   int? get bb;

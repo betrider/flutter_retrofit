@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_retrofit/freezed_annotation/rest_client.dart';
 import 'package:flutter_retrofit/freezed_annotation/sample.dart';
+import 'package:flutter_retrofit/json_annotation/sample_json.dart';
 import 'package:logger/logger.dart';
 
 final logger = Logger();
@@ -36,18 +37,26 @@ void main(List<String> args) {
   // var bb = Task(id: 'id', name: 'name1');
   // print(aa == bb);
 
-  /// json 테스트
-  Sample aa = Sample(ff: StatusCode.found, gg: StatusCodeEnhanced.internalServerError);
-  var bb = aa.toJson();
+  /// json 테스트1
+  // Sample aa = Sample(ff: StatusCode.found, gg: StatusCodeEnhanced.internalServerError);
+  // var bb = aa.toJson();
 
   // Map<String,dynamic> abc1 = {'ff':'success'};
   // Map<String,dynamic> abc2 = {'gg':'success'};
 
-  Map<String,dynamic> abc1 = {'ff':200};
-  Map<String,dynamic> abc2 = {'gg':200};
+  // Map<String,dynamic> abc1 = {'ff':200};
+  // Map<String,dynamic> abc2 = {'gg':200};
 
-  Sample abc11 = Sample.fromJson(abc1);
-  Sample abc22 = Sample.fromJson(abc2);
+  // Sample abc11 = Sample.fromJson(abc1);
+  // Sample abc22 = Sample.fromJson(abc2);
 
-  print('aas');
+  // print('aas');
+
+  /// json 테스트2
+  /// 
+  Sample aa = Sample(gg: StatusCodeEnhanced.found);
+  print(aa);
+
+  SampleJson bb = SampleJson(gg: StatusCodeEnhanced2.found);
+  print(bb);
 }

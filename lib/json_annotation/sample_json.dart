@@ -1,29 +1,30 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'sample.g.dart';
+part 'sample_json.g.dart';
 
 @JsonSerializable()
-class Sample {
+class SampleJson {
+  /// aaa 설명 222
   String? aa;
   int? bb;
   bool? cc;
   double? dd;
   DateTime? ee;
-  StatusCode? ff;
-  StatusCodeEnhanced? gg;
+  StatusCode2? ff;
+  StatusCodeEnhanced2? gg;
 
-  Sample({
+  SampleJson({
     this.aa,
     this.bb,
-    this.cc,
+    this.cc = true,
     this.dd,
     this.ee,
     this.ff,
-    this.gg,
+    required this.gg,
   });
 
-  factory Sample.fromJson(Map<String, dynamic> json) => _$SampleFromJson(json);
-  Map<String, dynamic> toJson() => _$SampleToJson(this);
+  factory SampleJson.fromJson(Map<String, dynamic> json) => _$SampleJsonFromJson(json);
+  Map<String, dynamic> toJson() => _$SampleJsonToJson(this);
 }
 
 /// @JsonValue() 안한경우
@@ -33,7 +34,7 @@ class Sample {
 /// @JsonValue() 사용한경우
 /// 200 / fromJson() -> StatusCode.success
 /// StatusCode.success / toJson() -> 200
-enum StatusCode {
+enum StatusCode2 {
   // @JsonValue(200)
   success,
   // @JsonValue(301)
@@ -52,12 +53,12 @@ enum StatusCode {
 /// 200 / fromJson() -> StatusCode.success
 /// StatusCode.success / toJson() -> 200
 // @JsonEnum(valueField: 'code')
-enum StatusCodeEnhanced {
+enum StatusCodeEnhanced2 {
   success(200),
   movedPermanently(301),
   found(302),
   internalServerError(500);
 
-  const StatusCodeEnhanced(this.code);
+  const StatusCodeEnhanced2(this.code);
   final int code;
 }

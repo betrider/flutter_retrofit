@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_retrofit/freezed_annotation/rest_client.dart';
-import 'package:flutter_retrofit/json_annotation/sample.dart';
+import 'package:flutter_retrofit/freezed_annotation/sample.dart';
 import 'package:logger/logger.dart';
 
 final logger = Logger();
@@ -40,8 +40,11 @@ void main(List<String> args) {
   Sample aa = Sample(ff: StatusCode.found, gg: StatusCodeEnhanced.internalServerError);
   var bb = aa.toJson();
 
-  Map<String,dynamic> abc1 = {'ff':'success'};
-  Map<String,dynamic> abc2 = {'gg':'success'};
+  // Map<String,dynamic> abc1 = {'ff':'success'};
+  // Map<String,dynamic> abc2 = {'gg':'success'};
+
+  Map<String,dynamic> abc1 = {'ff':200};
+  Map<String,dynamic> abc2 = {'gg':200};
 
   Sample abc11 = Sample.fromJson(abc1);
   Sample abc22 = Sample.fromJson(abc2);

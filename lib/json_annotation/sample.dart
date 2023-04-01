@@ -40,7 +40,7 @@ enum StatusCode {
   movedPermanently,
   // @JsonValue(302)
   found,
-  // @JsonValue(50)
+  // @JsonValue(500)
   internalServerError,
 }
 
